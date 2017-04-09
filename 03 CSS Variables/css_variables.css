@@ -1,0 +1,65 @@
+:root {
+    --bg-color: whitesmoke;
+    --color: #111;
+    --font: tahoma;    
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    text-align: center;
+    /*border: 1px solid;*/
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+#title {
+    margin-top: 100px;
+}
+
+#display {
+    margin: 32px auto;
+    width: 400px;
+    height: 300px;
+    background-color: var(--bg-color);
+    color: var(--color);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+#display h1 {
+    position: absolute;
+    top: 40px;
+
+    width: 100%;
+    height: 128px;
+    font-family: var(--font);
+}
+
+@keyframes color-rot {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/*hankey*/
+#display h2 {
+    position: absolute;
+    bottom: 32px;
+
+    width: 100%;
+    font-size: 126px;
+
+    filter: hue-rotate(0);
+
+    animation: color-rot .5s linear infinite;
+}
+
+#themes {
+
+}

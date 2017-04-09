@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+:root {
+    --border: 18px;
+    --wh: calc(275px + var(--border));
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(lightgray, darkgray);
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    text-align: center;
+
+    /*border: 1px solid;*/
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+#title {
+    margin-top: 100px;
+    color: white;
+    font-family: pacifico;
+    font-size: 64px;
+    text-shadow: 0 0 2px #999, 0 2px 0 black, 0 2px 2px black;
+}
+
+#clock {
+    margin: 74px auto 94px;
+    width: var(--wh);
+    height: var(--wh);
+    background: radial-gradient(whitesmoke, white);
+    border: var(--border) solid lightgray;
+    border-radius: 50%;
+    box-shadow: 0 0 4px black, 0 0 16px #333;
+}
+
+@media screen and (max-width: 400px) {
+    #title {
+        margin-top: 30px;
+        font-size: 46px;
+    }
+
+    #clock {
+        --border-s: 12px;
+        --wh-s: calc(200px + var(--border-s));
+        margin: 32px auto 42px;
+        width: var(--wh-s);
+        height: var(--wh-s);
+        border-width: var(--border-s)
+    }
+}
+
+.hands {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transform-origin: 50%;
+
+    height: 100%;
+
+    transition: .05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+#hour {
+    width: 8px;
+    background: linear-gradient(transparent 20%, black 20%, black 55%, transparent 55%);
+}
+
+#minute {
+    width: 6px;
+    background: linear-gradient(transparent 8%, black 8%, black 55%, transparent 55%);
+}
+
+#second {
+    width: 4px;
+    background: linear-gradient(transparent 10%, red 10%, red 55%, transparent 55%);
+}
+
+#center {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%);
+
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+#digital {
+    margin: auto;
+    padding-bottom: 64px;
+    width: 6em;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #999;
+}

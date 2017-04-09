@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="drum_kit.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body style="opacity: 0;">
+    <!--background-->
+    <div id="background">
+        <!--
+        page starts with opacity of 0,
+        js reveals page when bg image has loaded
+
+        make sure bg image has loaded before showing page
+        -->
+        <img src="images/drum_kit.png" style="display: none;" onload="init()" />
+    </div>
+        <h1>JS Drum Kit</h1>
+        <!--keys-->
+        <ul>
+            <li data-key-code="65">
+                A
+                <span>Boom</span>
+            </li>
+            <li data-key-code="83">
+                S
+                <span>Clap</span>
+            </li>
+            <li data-key-code="68">
+                D
+                <span>Hat</span>
+            </li>
+            <li data-key-code="70">
+                F
+                <span>Kick</span>
+            </li>
+            <li id="space" data-key-code="32">
+                SPACE
+                <span>OpenHat</span>
+            </li>
+            <li data-key-code="74">
+                J
+                <span>Ride</span>
+            </li>
+            <li data-key-code="75">
+                K
+                <span>Snare</span>
+            </li>
+            <li data-key-code="76">
+                L
+                <span>Tink</span>
+            </li>
+            <li data-key-code="186">
+                ;
+                <span>Tom</span>
+            </li>
+        </ul>
+</body>
+
+<script src="drum_kit.js"></script>
+
+</html>
