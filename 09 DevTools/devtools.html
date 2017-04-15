@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dev Tools Tips</title>
+    <!--<link rel="stylesheet" href=".css" />-->
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <h1>Open the console!<h4>^also click him</h4></h1>
+
+</body>
+
+<script>
+    let h1 = document.querySelector(`h1`);
+    h1.addEventListener(`click`, ev => ev.target.style.color = `royalblue`);
+
+    //interpolation
+    console.log(`I am a %s string.`, `stringy`);
+
+    //styled
+    console.log(`%cshadow and light`, `color: yellow; font-weight: bold; font-size: 32px; text-shadow: 0 0 10px white;`);
+
+    //info, error, warning
+    console.info(`<- blue`);
+    console.error(`<- red`);
+    console.warn(`<- yellow`);
+
+    //grouping
+    let dogs = [
+        { name: "B", age: 7 },
+        { name: "Bunge", age: 6 }
+    ];
+
+    dogs.forEach(dog => {
+        console.groupCollapsed(dog.name)
+        console.log(`My name is ${dog.name}`);
+        console.log(`I am ${dog.age} years old.`)
+        console.groupEnd(dog.name);
+    });
+
+    //count
+    console.count(`BBB`);
+    console.count(`BBB`);
+    console.count(`BBB`);
+    console.count(`B`);
+    console.count(`BBB`);
+    console.count(`BBB`);
+    console.count(`B`);
+
+    //timing
+    console.time(`for loop took`);
+    for (let x = 0; x < 1000; x++) {
+
+    }
+    console.timeEnd(`for loop took`);
+
+    //table
+    console.table(dogs);
+</script>
+
+</html>
