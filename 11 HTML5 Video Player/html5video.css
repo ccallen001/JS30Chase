@@ -1,0 +1,172 @@
+:root {
+    --bg-color: whitesmoke;
+    --color: #333;
+}
+
+html {}
+
+body {
+    background-color: var(--bg-color);
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--color);
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+span {
+    display: inline-block;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+.conts {
+    margin-bottom: 32px;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+#video-cont {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: inline-block;
+    padding: 16px;
+    border: 8px solid;
+    border-radius: 50%;
+    perspective: 100px;
+}
+
+#video-cont img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%) translateY(-50%);
+    z-index: -1;
+    width: 250px;
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+
+video {
+    top: 2px;
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+.filters {
+    filter: none;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+#play {
+    width: 2em;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s linear;
+}
+
+#play:hover {
+    transform: scale(1.25) translateY(-.5px);
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+#duration-cont {
+    --dur-width: 256px;
+    display: inline-block;
+    padding: 10px 16px 2px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#duration {
+    width: calc(var(--dur-width) + 100px);
+    cursor: pointer;
+}
+
+#duration-cont div {
+    margin: auto;
+    width: var(--dur-width);
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+#volume-cont {
+    --neg-marg: -16px;
+}
+
+#volume-cont span {
+    --wh: 42px;
+    width: var(--wh);
+    height: var(--wh);
+    line-height: var(--wh);
+    vertical-align: bottom;
+}
+
+#vMinus {
+    margin-right: var(--neg-marg);
+}
+
+#vPlus {
+    margin-left: var(--neg-marg);
+}
+
+#vMinus, #vPlus {
+    font-size: 32px;
+    font-weight: bold;
+    transition: transform .2s linear;
+}
+
+#vMinus:hover, #vPlus:hover {
+    transform: scale(1.5) translateY(-1px);
+}
+
+#vPlus, #vPerc {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#volume-cont #vPerc {
+    width: 4em;
+}
+
+#vMinus, #vPlus, #mute, #max {
+    cursor: pointer;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+button {
+    margin: auto 16px 16px;
+    padding: 6px 8px 7px;
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.active {
+    background-color: var(--color);
+    color: white;
+}

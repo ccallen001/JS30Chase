@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Video Player</title>
+    <link rel="stylesheet" href="html5video.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <div id="video-cont" class="conts">
+        <img id="rocks" src="http://cdn2.hubspot.net/hub/141995/file-17855484-png/images/html-5-rocks.png" />
+        <div id="blur" class="filters">
+            <div id="dim" class="filters">
+                <div id="invert" class="filters">
+                    <video>
+                        <source src="https://ia600502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8_512kb.mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="play-cont" class="conts">
+        <span id="play">=></span>
+    </div>
+
+    <div id="duration-cont" class="conts">
+        <input id="duration" type="range" value="0" step=".01" max="" />
+        <div>0:00s</div>
+    </div>
+
+    <div id="volume-cont" class="conts">
+        <span id="mute">mute</span>
+        <span id="vMinus">-</span>
+        <span id="vPerc">50%</span>
+        <span id="vPlus">+</span>
+        <span id="max">MAX</span>
+    </div>
+
+    <div id="special-cont" class="conts">
+        <button>Blur</button>
+        <button>Dim</button>
+        <button>Invert</button>
+        <div>
+            <button>Reveal Secret Message</button>
+        </div>
+    </div>
+
+</body>
+
+<script src="html5video.js"></script>
+
+</html>
