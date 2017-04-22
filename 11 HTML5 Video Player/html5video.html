@@ -12,42 +12,51 @@
 
 <body>
 
-    <div id="video-cont" class="conts">
-        <img id="rocks" src="http://cdn2.hubspot.net/hub/141995/file-17855484-png/images/html-5-rocks.png" />
-        <div id="blur" class="filters">
-            <div id="dim" class="filters">
-                <div id="invert" class="filters">
-                    <video>
-                        <source src="https://ia600502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8_512kb.mp4" />
-                    </video>
+    <h1>HTML5 Custom Video Player</h1>
+
+    <div id="left" class="wells">
+        <div id="video-cont" class="conts">
+            <img id="rocks" src="http://cdn2.hubspot.net/hub/141995/file-17855484-png/images/html-5-rocks.png" />
+            <div id="blur" class="filters">
+                <div id="dim" class="filters">
+                    <div id="invert" class="filters">
+                        <video>
+                            <source src="https://ia600502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8_512kb.mp4" />
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="play-cont" class="conts">
-        <span id="play">=></span>
-    </div>
+    <div id="right" class="wells">
+        <div id="play-cont" class="conts">
+            <span id="play">▶</span>
+        </div>
 
-    <div id="duration-cont" class="conts">
-        <input id="duration" type="range" value="0" step=".01" max="" />
-        <div>0:00s</div>
-    </div>
+        <div id="duration-cont" class="conts">
+            <p>Progress</p>
+            <input id="duration" type="range" value="0" step=".01" max="" />
+            <div>0:00s</div>
+        </div>
 
-    <div id="volume-cont" class="conts">
-        <span id="mute">mute</span>
-        <span id="vMinus">-</span>
-        <span id="vPerc">50%</span>
-        <span id="vPlus">+</span>
-        <span id="max">MAX</span>
-    </div>
+        <div id="volume-cont" class="conts">
+            <p>Volume</p>
+            <span id="mute">mute</span>
+            <span id="vMinus">-</span>
+            <span id="vPerc">50%</span>
+            <span id="vPlus">+</span>
+            <span id="max">max</span>
+        </div>
 
-    <div id="special-cont" class="conts">
-        <button>Blur</button>
-        <button>Dim</button>
-        <button>Invert</button>
-        <div>
-            <button>Reveal Secret Message</button>
+        <div id="special-cont" class="conts">
+            <p>Special Filters</p>
+            <button>Blur</button>
+            <button>Invert</button>
+            <button>Dim</button>
+            <div>
+                <button>Reveal Secret Message</button>
+            </div>
         </div>
     </div>
 

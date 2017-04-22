@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One');
 :root {
-    --bg-color: whitesmoke;
-    --color: #333;
+    --bg-color: #232323;
+    --color: cyan;
+    --light-shadow: white;
 }
 
 html {}
 
 body {
-    background-color: var(--bg-color);
+    background: radial-gradient(var(--color), var(--bg-color));
+    /*background-color: var(--bg-color);*/
 }
 
 body, body * {
@@ -15,6 +18,8 @@ body, body * {
     margin: 0;
     padding: 0;
     color: var(--color);
+    font-family: sans-serif;
+    font-size: 26px;
     letter-spacing: .5px;
     text-align: center;
     /*border: 1px solid;*/
@@ -25,6 +30,13 @@ body *::selection {
     background-color: transparent;
 }
 
+
+/*
+body * {
+    background-color: var(--bg-color);
+}
+*/
+
 span {
     display: inline-block;
 }
@@ -32,20 +44,61 @@ span {
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-.conts {
+h1 {
+    margin-top: 100px;
     margin-bottom: 32px;
+    color: #202020;
+    font-family: rubik mono one;
+    font-size: 44px;
+    letter-spacing: 0;
+    text-shadow: 0 1px 0 var(--light-shadow), 0 1px 14px var(--light-shadow), 0 2px 16px var(--color);
 }
 
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 
+.wells {
+    display: inline-block;
+    margin: 0 16px;
+    vertical-align: top;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+.conts {
+    margin: 4px auto;
+    padding: 8px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--light-shadow);
+    border-radius: 16px;
+    box-shadow: 0 0 24px var(--light-shadow);
+}
+
+.conts p {
+    margin-bottom: 16px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 var(--bg-color), 0 0 1px var(--light-shadow);
+}
+
+.conts#duration-cont p {
+    margin-top: 6px;
+}
+
+.conts#special-cont p {
+    margin-bottom: 32px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
 #video-cont {
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 64px;
+    margin-bottom: 64px;
     display: inline-block;
     padding: 16px;
-    border: 8px solid;
+    background-color: var(--bg-color);
+    border: 8px solid var(--light-shadow);
     border-radius: 50%;
+    box-shadow: 0 0 24px var(--light-shadow), 0 2px 32px var(--bg-color);
     perspective: 100px;
     transform-style: preserve-3d;
 }
@@ -72,13 +125,16 @@ video {
     filter: none;
 }
 
-
 /*------------------------------------------------------------------------------------------------------------------------*/
 
 #play {
-    width: 2em;
+    --square: 2em;
+    width: var(--square);
+    height: var(--square);
     font-size: 32px;
     font-weight: bold;
+    line-height: var(--square);
+    text-shadow: 0 1px 0 #232323, 0 1px 4px var(--light-shadow);
     cursor: pointer;
     transition: transform .1s linear;
 }
@@ -91,11 +147,15 @@ video {
 /*------------------------------------------------------------------------------------------------------------------------*/
 
 #duration-cont {
-    --dur-width: 256px;
+    --dur-width: 325px;
     display: inline-block;
-    padding: 10px 16px 2px;
-    background-color: white;
+    /*margin-bottom: 50px;*/
+    padding: 0 16px 8px;
     border-radius: 8px;
+}
+
+#duration-cont p {
+    margin-bottom: 0;
 }
 
 #duration {
@@ -103,16 +163,21 @@ video {
     cursor: pointer;
 }
 
+
+/*the 0:00s display*/
+
 #duration-cont div {
     margin: auto;
     width: var(--dur-width);
+    font-size: 22px;
 }
 
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 
 #volume-cont {
-    --neg-marg: -16px;
+    --neg-marg: -32px;
+    margin-bottom: 4px;
 }
 
 #volume-cont span {
@@ -132,6 +197,7 @@ video {
 }
 
 #vMinus, #vPlus {
+    z-index: 2;
     font-size: 32px;
     font-weight: bold;
     transition: transform .1s linear;
@@ -146,6 +212,10 @@ video {
     font-weight: bold;
 }
 
+#vPerc {
+    font-size: 32px;
+}
+
 #volume-cont #vPerc {
     width: 4em;
 }
@@ -154,13 +224,23 @@ video {
     cursor: pointer;
 }
 
+#volume-cont #mute, #volume-cont #max {
+    margin: auto 16px;
+    width: 3em;
+}
+
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 
+#special-cont {
+    margin-top: 8px;
+}
+
 button {
-    margin: auto 16px 24px;
+    margin: 0 40px 24px;
     padding: 6px 8px 7px;
-    background-color: white;
+    background-color: var(--bg-color);
+    font-size: 18px;
     font-weight: bold;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -169,5 +249,8 @@ button {
 
 button.active {
     background-color: var(--color);
-    color: white;
+    color: var(--bg-color);
 }
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/

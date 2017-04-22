@@ -30,13 +30,13 @@ let video = document.querySelector(`video`),
 function playIt() {
     video.play();
     playing = true;
-    play.textContent = `||`;
+    play.textContent = `✊`;
 }
 
 function pauseIt() {
     video.pause();
     playing = false;
-    play.textContent = `=>`;
+    play.textContent = `▶`;
 }
 
 play.addEventListener(`click`, ev => {
@@ -142,12 +142,12 @@ let funcMap = {
         blur.blurred = !blur.blurred;
     },
     1: () => {
-        dim.style.filter = !dim.dimmed ? `brightness(.25)` : `none`;
-        dim.dimmed = !dim.dimmed;
-    },
-    2: () => {
         invert.style.filter = !invert.inverted ? `invert(100%)` : `none`;
         invert.inverted = !invert.inverted;
+    },
+    2: () => {
+        dim.style.filter = !dim.dimmed ? `brightness(.25)` : `none`;
+        dim.dimmed = !dim.dimmed;
     },
     3: () => {
         rocks.style.opacity = rocks.style.opacity == 0 ? 1 : 0;
