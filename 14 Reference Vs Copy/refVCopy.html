@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Ref v Copy</title>
+    <link rel="stylesheet" href="refVCopy.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <h1>Reference Vs Copy</h1>
+
+    <pre style="text-align: left">
+
+        'use strict';
+
+        //Nums and String make COPIES
+
+        let num = 100,
+            num1 = 200;
+
+        num = 200;
+
+        console.log(num, num1); //100, 200
+
+        //
+
+        let name = `Chase`,
+            name1 = `B`;
+
+        name1 = name;
+
+        console.log(name1); //Chase
+        name = `new name`;
+        console.log(name1); //still Chase even though original was updated
+
+        //Arrays have REFERENCES so do objects
+
+        const arr = [1, 2, 3, 4],
+            ref2Arr = arr;
+
+        console.log(arr, ref2Arr); //[1, 2, 3, 4] [1, 2, 3, 4]
+
+        arr[3] = 5;
+
+        console.log(ref2Arr); //[1, 2, 3, 5] changing the original, changed the reference!
+
+        //So... what about copies???
+
+        //.slice() can be used to make copies
+        //[].concat(arr) can be used as well
+        //spread works too!
+        let copiedArr = [...arr];
+
+        console.log(copiedArr); //[1, 2, 3, 5]
+
+        arr[3] = 6;
+
+        console.log(arr, copiedArr); //copiedArr is still [1, 2, 3, 5] because it's its own copy!
+
+        //Array.from() works as well
+
+        //Objects
+
+        const theDude = {
+            name: `the Dude`,
+        }
+
+        const dude = theDude;
+
+        dude.name = `no more Dude`;
+
+        console.log(theDude.name); //no more Dude ..it changed the original!
+
+        //use Object.assign
+        const theDudeAgain = Object.assign({}, theDude, { name: `the Dude` });
+
+        console.log(theDude.name, theDudeAgain.name); //no more Dude the Dude
+        //the dudeAgain is it's own copy!
+
+        //shallow copy an entire object
+        const anotherDude = Object.assign({}, theDudeAgain);
+
+        //deep cloning can be achieved with functions or the "the poor man's way.. JSON.parse(JSON.stringify(obj))"
+
+    </pre>
+
+    <script>
+        'use strict';
+
+        //Nums and String make COPIES
+
+        let num = 100,
+            num1 = 200;
+
+        num = 200;
+
+        console.log(num, num1); //100, 200
+
+        //
+
+        let name = `Chase`,
+            name1 = `B`;
+
+        name1 = name;
+
+        console.log(name1); //Chase
+        name = `new name`;
+        console.log(name1); //still Chase even though original was updated
+
+        //Arrays have REFERENCES so do objects
+
+        const arr = [1, 2, 3, 4],
+            ref2Arr = arr;
+
+        console.log(arr, ref2Arr); //[1, 2, 3, 4] [1, 2, 3, 4]
+
+        arr[3] = 5;
+
+        console.log(ref2Arr); //[1, 2, 3, 5] changing the original, changed the reference!
+
+        //So... what about copies???
+
+        //.slice() can be used to make copies
+        //[].concat(arr) can be used as well
+        //spread works too!
+        let copiedArr = [...arr];
+
+        console.log(copiedArr); //[1, 2, 3, 5]
+
+        arr[3] = 6;
+
+        console.log(arr, copiedArr); //copiedArr is still [1, 2, 3, 5] because it's its own copy!
+
+        //Array.from() works as well
+
+        //Objects
+
+        const theDude = {
+            name: `the Dude`,
+        }
+
+        const dude = theDude;
+
+        dude.name = `no more Dude`;
+
+        console.log(theDude.name); //no more Dude ..it changed the original!
+
+        //use Object.assign
+        const theDudeAgain = Object.assign({}, theDude, { name: `the Dude` });
+
+        console.log(theDude.name, theDudeAgain.name); //no more Dude the Dude
+        //the dudeAgain is it's own copy!
+
+        //shallow copy an entire object
+        const anotherDude = Object.assign({}, theDudeAgain);
+
+         //deep cloning can be achieved with functions or the "the poor man's way.. JSON.parse(JSON.stringify(obj))"
+    </script>
+
+</body>
+
+<script src="refVCopy.js"></script>
+
+</html>

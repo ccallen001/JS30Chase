@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css?family=Philosopher');
+:root {
+    --color: #efefef;
+    --base-font: 18px;
+}
+
+html {
+    background-color: #111;
+}
+
+body {
+    margin: 4px !important;
+    padding-bottom: 32px !important;
+    background: url("https://s-media-cache-ak0.pinimg.com/736x/a1/7f/dd/a17fdd42ec01642322f31dad488059be.jpg");
+    box-shadow: inset 0 1px 6px var(--color), 0 1px 6px var(--color);
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--color);
+    font-family: philosopher, sans-serif;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.main-container {
+    margin: auto;
+    padding: 4px 12px 8px;
+    width: 550px;
+    background-color: rgba(250, 250, 250, .05);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 16px #111, 0 -1px 256px var(--color), 0 0 280px var(--color);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+/*scary stories*/
+
+h1 {
+    margin-bottom: 18px;
+    font-size: calc(var(--base-font) * 4);
+    letter-spacing: 4px;
+    text-shadow: 0 1px 4px red;
+}
+
+
+/*to Tell in The Dark*/
+
+h2 {
+    margin-bottom: 34px;
+    font-size: calc(var(--base-font) * 2.5);
+    text-shadow: 0 1px 4px red;
+}
+
+
+/*the scariest*/
+
+h3 {
+    display: inline-block;
+    padding-top: 50px;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+    font-size: calc(var(--base-font) * 1.75);
+    font-style: italic;
+    letter-spacing: .75px;
+    text-shadow: -1px 0 0 #111, 0 1px 0 #111, 0 0 2px var(--color);
+    border-bottom: 2px solid #111;
+}
+
+
+/*story titles*/
+
+h4 {
+    padding: 16px 8px 6px;
+    font-size: calc(var(--base-font) * 1.5);
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: 0 0 2px red;
+}
+
+
+/*as featured on*/
+
+body .title p {
+    z-index: 1;
+    margin: 14px auto 26px;
+    font-size: var(--base-font);
+    text-align: center;
+    text-shadow: 0 1px 1px #111;
+}
+
+
+/*Bustle*/
+
+body .title p a {
+    display: inline-block;
+    color: var(--color);
+    font-size: calc(var(--base-font) * 2);
+    text-decoration: none;
+    transition: transform .1s linear;
+}
+
+body .title p a:hover {
+    transform: scale(1.25) translate(10%) translateY(-10%);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.container:not(.title) {
+    margin-top: 32px;
+    padding: 8px;
+    background-color: rgba(250, 250, 250, .05);
+    border: 1px solid var(--color);
+    border-radius: 8px;
+    /*box-shadow: 0 1px 128px var(--color);*/
+}
+
+.container:first-child {
+    margin-top: 8px;
+}
+
+.container p {
+    font-size: calc(var(--base-font) * 1.25);
+    padding: 8px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-shadow: 0 1px 0 #111, 0 0 1px rgba(250, 250, 250, .25);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.img {
+    display: inline-block;
+    margin: 16px 8px 4px;
+    width: 256px;
+    height: 256px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 1s ease-out, transform .5s ease-out;
+}
+
+.img.left {
+    float: left;
+    margin-right: 16px;
+    transform: scale(.75) translate(-110%) translateY(10%);
+}
+
+.img.right {
+    float: right;
+    margin-left: 16px;
+    transform: scale(.75) translate(110%) translateY(10%);
+}
+
+#red-spot .img {
+    background: url("https://lovelace-media.imgix.net/uploads/1390/d934b540-6bb1-0134-186d-060e3e89e053.jpg") no-repeat center / cover;
+    opacity: 1;
+    transform: translateY(8px);
+}
+
+#big-toe .img {
+    background: url("https://lovelace-media.imgix.net/uploads/1390/0f7561d0-6bb3-0134-cdc0-0aec1efe63a9.jpg") no-repeat center / cover;
+}
+
+#basket .img {
+    margin-right: 20px;
+    background: url("https://lovelace-media.imgix.net/uploads/1390/2114d560-6bb4-0134-1872-060e3e89e053.png") no-repeat center / cover;
+}
+
+#drum .img {
+    margin-right: -8px;
+    background: url("https://lovelace-media.imgix.net/uploads/1390/e2f43af0-6bb4-0134-cdbc-0aec1efe63a9.jpg") no-repeat center / cover;
+}
+
+#pet .img {
+    background: url("https://lovelace-media.imgix.net/uploads/1390/d4484520-6bb6-0134-cdc2-0aec1efe63a9.jpg") no-repeat center / cover;
+}
