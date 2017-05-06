@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sort Without Articles</title>
+    <link rel="stylesheet" href="sort.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <div id="background"></div>
+
+    <h1>Input Phrases Seperated by Commas</h1>
+    <h5>click button to sort</h5>
+    <div id="articles-container">
+        <label>Respect Articles<input type="radio" name="articles" /></label>
+        <label>Ignore Articles<input type="radio" name="articles" /></label>
+    </div>
+    <div id="csv-container">
+        <label>&rarr;</label><input id="csv" />
+    </div>
+    <button id="sort">Sort</button>
+
+    <ul id="list">
+
+    </ul>
+
+</body>
+
+<script src="sort.js"></script>
+
+</html>
