@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Webcam</title>
+    <link rel="stylesheet" href="webcam.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <div class="video-container">
+
+        <div class="filter">
+            <video autoplay></video>
+        </div>
+
+    </div>
+
+    <div class="buttons-container">
+        <button class="go-wild">Go Wild!</button>
+        <button class="reset">Reset</button>
+    </div>
+
+    <didv class="inputs-container">
+
+        <div >
+            <label>Blur:</label><input class="blur" type="range" min="0" max="20" step=".02" value="0" />
+            <output></output>
+        </div>
+
+        <div >
+            <label>Brightness:</label><input class="brightness" type="range" min="0" max="100" step=".5" value="100" />
+            <output></output>
+        </div>
+
+        <div >
+            <label>Contrast:</label><input class="contrast" type="range" min="0" max="100" step=".5" value="100" />
+            <output></output>
+        </div>
+
+         <div >
+            <label>Grayscale:</label><input class="grayscale" type="range" min="0" max="100" step=".5" value="0" />
+            <output></output>
+        </div>
+
+        <div >
+            <label>Hue Rotate:</label><input class="huerotate" type="range" min="0" max="360" step="1" value="0" />
+            <output></output>
+        </div>
+
+         <div >
+            <label>Invert:</label><input class="invert" type="range" min="0" max="100" step=".5" value="0" />
+            <output></output>
+        </div>
+
+        <div >
+            <label>Saturate:</label><input class="saturate" type="range" min="0" max="100" step="1" value="100" />
+            <output></output>
+        </div>
+
+         <div >
+            <label>Sepia:</label><input class="sepia" type="range" min="0" max="100" step=".5" value="0" />
+            <output></output>
+        </div>
+
+    </didv>
+
+</body>
+
+<script src="webcam.js"></script>
+
+</html>

@@ -1,0 +1,91 @@
+:root {
+    --container-width: 640px;
+}
+
+html {}
+
+body {
+    background-color: #333;
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: ghostwhite;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    margin-top: 100px;
+    background-color: transparent;
+}
+
+.video-container {
+    display: inline-block;
+    margin-top: 50px;
+    width: var(--container-width);
+    height: 480px;
+    overflow: hidden;
+}
+
+.filter {
+    display: inline-block;
+    height: 100%;
+    filter: blur(0px) brightness(100%) contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) saturate(100%) sepia(0%);
+}
+
+video {
+    display: inline-block;
+    height: 100%;
+}
+
+.buttons-container {
+    margin-top: 32px;
+}
+
+.buttons-container button {
+    display: block;
+    margin: 16px auto;
+    padding: 4px 16px 5px;
+    width: 100px;
+    color: #111;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.buttons-container button:active {
+    transform: scale(.95);
+}
+
+.inputs-container {
+    display: block;
+    margin: 16px auto 50px;
+    width: var(--container-width);
+}
+
+.inputs-container div {
+    margin-top: 8px;
+}
+
+.inputs-container label {
+    display: inline-block;
+    margin-right: 16px;
+    width: 100px;
+}
+
+.inputs-container input {
+    vertical-align: bottom;
+    width: 80%;
+    cursor: pointer;
+}
+
+.inputs-container output {
+    width: 64px;
+}

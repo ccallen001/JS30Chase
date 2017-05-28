@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Add Total Time</title>
+	<link rel="stylesheet" href="reduce.css" />
+	<!--include babel-->
+	<!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+	<div id="background"></div>
+
+	<div id="times">
+		<h1>Add Total Time</h1>
+
+		<label>Add a Time: </label><input /><button id="add">Add Time</button>
+
+		<ul>
+			<!--bad practice... I know...-->
+			<div>
+				<span>(X)</span>
+				<li>1:02</li>
+			</div>
+			<div>
+				<span>(X)</span>
+				<li>03:44</li>
+			</div>
+			<div>
+				<span>(X)</span>
+				<li>5:41</li>
+			</div>
+		</ul>
+
+		<button id="total-btn">Total Times</button>
+
+		<output id="total"></output>
+	</div>
+
+</body>
+
+<script src="reduce.js"></script>
+
+</html>
