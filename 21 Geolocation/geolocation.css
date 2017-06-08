@@ -1,0 +1,54 @@
+:root {}
+
+html {}
+
+body {}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Days+One");
+body {
+    background: url("http://4.bp.blogspot.com/-dmVtK-0UpfU/UUbJERo7g6I/AAAAAAAAE_4/rjguIp_MyVs/s1600/black-stripes-striped-background-pattern.jpg");
+    color: whitesmoke;
+    font-family: days one, sans-serif;
+    text-align: center;
+}
+
+body * {
+    text-shadow: 0 2px 0 black, 0 2px 8px #111;
+}
+
+h1 {
+    position: relative;
+    z-index: 100;
+    margin-top: 64px;
+    font-size: 48px;
+}
+
+#arrow {
+    display: block;
+    margin: 16px auto 86px;
+    width: 100px;
+    height: 256px;
+    overflow: visible;
+    transition: transform .33s linear;
+}
+
+output {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+}
