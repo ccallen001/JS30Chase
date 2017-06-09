@@ -28,19 +28,19 @@ body {
 }
 
 body * {
-    text-shadow: 0 2px 0 black, 0 2px 8px #111;
+    text-shadow: 0 4px 0 black, 0 2px 8px #111;
 }
 
 h1 {
     position: relative;
     z-index: 100;
-    margin-top: 64px;
+    margin-top: 32px;
     font-size: 48px;
 }
 
 #arrow {
     display: block;
-    margin: 16px auto 86px;
+    margin: 1px auto 98px;
     width: 100px;
     height: 256px;
     overflow: visible;
@@ -51,4 +51,5 @@ output {
     display: block;
     font-size: 32px;
     font-weight: bold;
+    text-shadow: 0 1px 0 black, 0 1px 4px #111;
 }

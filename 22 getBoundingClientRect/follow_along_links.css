@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Vibur');
+:root {
+    --trans: all .25s ease-out;
+}
+
+html {}
+
+body {
+    padding-top: 300px !important;
+    background: linear-gradient(white, whitesmoke, white) no-repeat;
+}
+
+body, body * {
+    position: relative;
+    /*box-sizing: border-box;*/
+    margin: 0;
+    padding: 0;
+    font-family: vibur, sans-serif;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+#follower {
+    position: absolute;
+    padding: 16px;
+    border-radius: 32px;
+    transition: var(--trans);
+}
+
+h1#title {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    font-family: tahoma;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    flex: 1;
+    display: inline-block;
+}
+
+a {
+    color: #333;
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--trans);
+}
+
+a:hover {
+    color: white;
+}
