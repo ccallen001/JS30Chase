@@ -1,0 +1,64 @@
+:root {}
+
+html {}
+
+body {}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+.android {
+    --width: 400px;
+    --height: 250px;
+    margin: auto;
+    width: var(--width);
+    background-image: url("http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43be0f.png");
+}
+
+.android.top {
+    height: var(--height);
+}
+
+.android.bottom {
+    --bot-height: calc(var(--width) - var(--height));
+    height: var(--bot-height);
+    background-position: 0 var(--bot-height);
+}
+
+
+/* for android top talking animation */
+
+@keyframes talk {
+    50% {
+        transform: rotate(-15deg);
+    }
+}
+
+#speak-btn {
+    --bg-color: white;
+    --color: #111;
+    padding: 8px 32px 9px;
+    background-color: var(--bg-color);
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 1px 4px;
+    cursor: pointer;
+    transition: background-color .1s linear, color .15s linear;
+}
+#speak-btn:hover {
+    background-color: var(--color);
+    color: var(--bg-color);
+}

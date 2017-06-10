@@ -47,13 +47,13 @@ recognition.onresult = ev => {
 };
 
 function sayIt() {
-    console.log(synthesis.getVoices());
+    // console.log(synthesis.getVoices());
     let utterance = new SpeechSynthesisUtterance(inputs[this.i].value),
         engVoices = synthesis.getVoices().filter(voice => voice.lang.includes(`en-`));
 
     utterance.voice = engVoices[Math.floor(Math.random() * engVoices.length)];
 
-    console.log(engVoices);
+    // console.log(engVoices);
 
     synthesis.speak(utterance);
 }
