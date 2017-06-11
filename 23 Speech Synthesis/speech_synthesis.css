@@ -23,9 +23,14 @@ body *::selection {
     background-color: transparent;
 }
 
+#android-container {
+    display: inline-block;
+    transform: translate(-18px);
+}
+
 .android {
     --width: 400px;
-    --height: 250px;
+    --height: 246px;
     margin: auto;
     width: var(--width);
     background-image: url("http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43be0f.png");
@@ -37,7 +42,7 @@ body *::selection {
 
 .android.bottom {
     --bot-height: calc(var(--width) - var(--height));
-    margin-bottom: 50px;
+    margin-bottom: 64px;
     height: var(--bot-height);
     background-position: 0 var(--bot-height);
 }
@@ -54,7 +59,9 @@ body *::selection {
 #speak-btn {
     --bg-color: lightgray;
     --color: #303030;
-    padding: 16px 128px 17px;
+    display: block;
+    margin: auto;
+    padding: 10px 128px 11px;
     background-color: var(--bg-color);
     color: var(--color);
     font-size: 24px;
