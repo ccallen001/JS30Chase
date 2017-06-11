@@ -2,7 +2,11 @@
 
 html {}
 
-body {}
+body {
+    padding-top: 150px !important;
+    height: 100vh;
+    background: radial-gradient(white, cornflowerblue, #111);
+}
 
 body, body * {
     position: relative;
@@ -33,6 +37,7 @@ body *::selection {
 
 .android.bottom {
     --bot-height: calc(var(--width) - var(--height));
+    margin-bottom: 50px;
     height: var(--bot-height);
     background-position: 0 var(--bot-height);
 }
@@ -47,18 +52,26 @@ body *::selection {
 }
 
 #speak-btn {
-    --bg-color: white;
-    --color: #111;
-    padding: 8px 32px 9px;
+    --bg-color: lightgray;
+    --color: #303030;
+    padding: 16px 128px 17px;
     background-color: var(--bg-color);
+    color: var(--color);
+    font-size: 24px;
     font-weight: bold;
+    letter-spacing: 4px;
+    text-shadow: 0 1px 16px white;
     border: none;
+    border-top: 1px solid #111;
     border-radius: 16px;
-    box-shadow: 0 1px 4px;
+    box-shadow: 0 1px 0, 0 2px 8px;
     cursor: pointer;
     transition: background-color .1s linear, color .15s linear;
 }
+
 #speak-btn:hover {
     background-color: var(--color);
-    color: var(--bg-color);
+    color: whitesmoke;
+    text-shadow: 0 1px 16px;
+    box-shadow: 0 1px 0 #111, 0 2px 8px #111;
 }
