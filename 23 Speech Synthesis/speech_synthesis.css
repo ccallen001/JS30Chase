@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
 :root {}
 
 html {}
 
 body {
-    padding-top: 150px !important;
+    padding-top: 122px !important;
     height: 100vh;
     background: radial-gradient(white, cornflowerblue, #111);
 }
@@ -13,6 +14,7 @@ body, body * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: vt323, sans-serif;
     letter-spacing: .5px;
     text-align: center;
     /*border: 1px solid;*/
@@ -23,9 +25,41 @@ body *::selection {
     background-color: transparent;
 }
 
+#squiggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(100%) translateY(-100%);
+}
+
+@keyframes squiggle {
+    100% {
+        transform: translate(-500%) translateY(400%);
+    }
+}
+
+#ekg {
+    position: absolute;
+    top: 420px;
+    width: 50%;
+    border-radius: 25%;
+    transform: translate(-50%);
+}
+
+h1 {
+    margin-bottom: 68px;
+    color: whitesmoke;
+    font-size: 64px;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 0 #111, 0 1px 4px #333;
+}
+
 #android-container {
     display: inline-block;
-    transform: translate(-18px);
+    margin-bottom: 74px;
+    /*more negative pulls face more to the left*/
+    transform: rotate(0) translate(-10px);
+    transition: transform 4.5s ease-in;
 }
 
 .android {
@@ -33,7 +67,7 @@ body *::selection {
     --height: 246px;
     margin: auto;
     width: var(--width);
-    background-image: url("http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43be0f.png");
+    background-image: url("images/android.png");
 }
 
 .android.top {
@@ -42,7 +76,6 @@ body *::selection {
 
 .android.bottom {
     --bot-height: calc(var(--width) - var(--height));
-    margin-bottom: 64px;
     height: var(--bot-height);
     background-position: 0 var(--bot-height);
 }
@@ -61,7 +94,8 @@ body *::selection {
     --color: #303030;
     display: block;
     margin: auto;
-    padding: 10px 128px 11px;
+    margin-bottom: 32px;
+    padding: 10px 164px 11px;
     background-color: var(--bg-color);
     color: var(--color);
     font-size: 24px;
