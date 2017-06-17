@@ -4,7 +4,7 @@ const follower = document.getElementById(`follower`),
     links = document.querySelectorAll(`ul li a`);
 
 function showStats() {
-    let boundingRect = this.getBoundingClientRect(),
+    let boundingRect = this.getBoundingClientRect() + document.body.scrollTop, // <-- might have messed it up, we'll see...
         padding = parseInt(getComputedStyle(follower).getPropertyValue(`padding`));
 
     follower.style.backgroundColor = `rgba(0, 0, 0, .25)`;
