@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Propagation</title>
+    <link rel="stylesheet" href="events.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body id="da-bod">
+
+    <h1>Event Propagation</h1>
+
+    <div id="grandparent" class="family">
+        <div id="parent" class="family">
+            <div id="child" class="family"></div>
+        </div>
+    </div>
+
+    <output id="out">output</output>
+
+</body>
+
+<script src="events.js"></script>
+
+</html>

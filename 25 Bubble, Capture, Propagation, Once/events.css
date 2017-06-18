@@ -1,0 +1,58 @@
+:root {}
+
+html {}
+
+body {
+    padding-top: 64px !important;
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+h1 {
+    margin-bottom: 32px;
+}
+
+.family {
+    --wh: 200px;
+    display: inline-block;
+    margin: auto;
+    padding: 64px;
+    transition: background-color .33s linear;
+}
+
+#da-bod .family:hover {
+    background-color: forestgreen;
+}
+
+#grandparent {
+    margin-bottom: 32px;
+    background-color: purple;
+}
+
+#parent {
+    background-color: violet
+}
+
+#child {
+    width: var(--wh);
+    height: var(--wh);
+    background-color: orange;
+}
+
+#out {
+    display: block;
+    margin-bottom: 32px;
+}
