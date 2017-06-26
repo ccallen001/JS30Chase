@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Molle:400i');
+:root {
+    --fill-color: whitesmoke;
+    /*initial duration.. changed in the js upon hovering over any nav link*/
+    --trans-time: .1s;
+    --transition: top var(--trans-time) linear, left var(--trans-time) linear, width var(--trans-time) linear, height var(--trans-time) linear, transform var(--trans-time) linear;
+}
+
+html {}
+
+body {
+    background: url("https://s-media-cache-ak0.pinimg.com/originals/e5/3b/52/e53b52ee0d7ce9b38b97bed49fa6bb1d.jpg") no-repeat top / cover;
+}
+
+
+/* not mobile friendly yet */
+
+@media screen and (max-width: 500px) {
+    body * {
+        display: none;
+        z-index: -1;
+    }
+    body::after {
+        content: "SORRY! Not mobile friendly yet.. :(";
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100px;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 0 0 16px white, 0 0 32px white
+    }
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+nav {
+    z-index: 1002;
+    background-color: black;
+}
+
+nav ul {}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 6vw;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 22px 8px 21px;
+    color: white;
+    font-family: bookman old style;
+    font-size: 2vw;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul li a span.registered {
+    vertical-align: top;
+    font-size: 1vw;
+}
+
+#triangle {
+    position: absolute;
+    top: 83px;
+    left: 50%;
+    z-index: 1001;
+    transform: translate(-50%) translateY(-100%);
+    width: 64px;
+    height: 64px;
+    transition: var(--transition);
+}
+
+#triangle polygon {
+    /*fill: url(#grad);*/
+    fill: var(--fill-color);
+}
+
+#follow-along {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    z-index: 1000;
+    width: 100px;
+    transform: translate(-50%) translateY(-100%);
+    background-color: var(--fill-color);
+    border-radius: 16px;
+    box-shadow: 0 2px 4px #999;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+
+/* quick and dirty */
+
+#follow-along > div {
+    transition: opacity .3s linear;
+}
+
+div.bland {
+    opacity: 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+h1 {
+    display: inline-block;
+    margin-top: 3.25vw;
+    color: white;
+    font-family: molle;
+    font-size: 8vw;
+    text-shadow: 0 8px 0 #111, 0 1px 6px black, 0 2px 12px black;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 112%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .5);
+}
+
+
+/* the switchable contents for the follow along div */
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+div.bland * {
+    border: 1px solid;
+}
+
+div.bland {
+    padding: 16px;
+    background-color: whitesmoke;
+    font-size: 1.5 vw;
+    border-radius: 8px;
+    box-shadow: 0 1.5px 4px #aaa;
+    cursor: pointer;
+}
+
+.bland-icon {
+    display: inline-block;
+    margin: -29px auto -33px;
+    background: url("https://image.flaticon.com/sprites/new_packs/187515-hipster.png") no-repeat top;
+    width: 130px;
+    height: 130px;
+    border: none !important;
+    transform: scale(.5);
+}
+
+.bland p {
+    border: none;
+}
+
+
+/*-----------------------------------------------------*/
+
+#bland-city {
+    width: 25vw;
+}
+
+.bland-icon.city {
+    background-position: -36px -218px;
+}
+
+
+/*-----------------------------------------------------*/
+
+#bland-land {
+    width: 33vw;
+}
+
+.bland-icon.land {
+    background-position: -236px -406px;
+}
+
+
+/*-----------------------------------------------------*/
+
+#bland-town {
+    width: 20vw;
+}
+
+.bland-icon.town {
+    background-position: -36px -406px;
+}
+
+
+/*-----------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/

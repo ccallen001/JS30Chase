@@ -1,0 +1,43 @@
+:root {}
+
+html {}
+
+body {
+    width: 150vw;
+    height: 100vw;
+    background: url("background.png") no-repeat left top / cover;
+    overflow: hidden;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+body:active {
+    cursor: -webkit-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+h1 {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 100%;
+    color: white;
+    font-size: 100px;
+    text-align: left;
+    text-shadow: 0 6px 0 black, 0 2px 16px black;
+}

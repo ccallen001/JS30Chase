@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Video Speed UI</title>
+    <link rel="stylesheet" href="video_speed_ui.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <h1>Video Speed Controller</h1>
+
+    <div id="video-container">
+        <video autoplay loop>
+            <source src="bigbuckbunnytrailer-480p.mp4" />
+        </video>
+        <output id="speed-display"></output>
+    </div>
+
+    <div id="controls-container">
+        <div id="control">
+            <div class="gradient"></div>
+            <div id="slide"></div>
+        </div>
+        <button id="boost">Boost!</button>
+        <span id="sound-barrier">^<br />sound barrier</span>
+    </div>
+
+</body>
+
+<script src="video_speed_ui.js"></script>
+
+</html>

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+:root {}
+
+html {
+    height: 100vh;
+    background: linear-gradient(to bottom right, white, #ccc, whitesmoke) no-repeat;
+}
+
+body {
+    padding-top: 86px !important;
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+
+/**/
+
+h1 {
+    margin-bottom: 78px;
+    color: #1f1f1f;
+    font-family: monoton, sans-serif;
+    font-size: 40px;
+}
+
+#video-container {
+    display: inline-block;
+    margin-bottom: 86px;
+}
+
+
+/* speed display */
+
+#video-container #speed-display {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    width: 100px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #666, 0 1px 2px #666;
+    transform: translate(-50%) scale(1);
+    /* transition logic handled in js */
+}
+
+video {
+    border: 1px solid #666;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px #3f3f3f;
+}
+
+#controls-container {
+    --ctrl-width: 256px;
+    --btn-width: 100px;
+    --height: 32px;
+    margin: auto;
+    width: calc(var(--ctrl-width) + var(--btn-width) + 24px);
+}
+
+#control {
+    display: inline-block;
+    margin-right: 16px;
+    width: var(--ctrl-width);
+    height: var(--height);
+    background-color: white;
+    border: 1px solid #333;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #999;
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--ctrl-width) / 2);
+    height: 100%;
+    background: linear-gradient(to right, violet, cornflowerblue);
+}
+
+#slide {
+    --slide-width: 8px;
+    position: absolute;
+    top: 0;
+    left: calc((var(--ctrl-width) - var(--slide-width)) / 2);
+    width: var(--slide-width);
+    height: var(--height);
+    background-color: whitesmoke;
+    border: 1px solid #111;
+    border-radius: 4px;
+    cursor: -webkit-grab;
+    cursor: grab;
+    transform: scale(1.1) translateY(-1px);
+}
+
+#slide:active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+button#boost {
+    vertical-align: top;
+    width: var(--btn-width);
+    height: var(--height);
+    background: linear-gradient(to right bottom, violet, cornflowerblue);
+    color: white;
+    font-weight: bold;
+    line-height: 0;
+    text-shadow: 0 1px 0 black, 0 1px 4px black;
+    box-shadow: none;
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px #999;
+    cursor: pointer;
+    transform: scale(1);
+}
+
+
+/* boost button pressed state */
+
+button#boost:active {
+    transform: scale(.95) translateY(2px);
+}
+
+
+/* boost button boosted state */
+
+button#boost.boosted {
+    font-size: 14px;
+    text-shadow: 0 1px 0 black, 0 1px 4px black;
+    box-shadow: 0 0 1px lightblue, 0 0 8px cornflowerblue;
+}
+
+#sound-barrier {
+    display: inline-block;
+    position: absolute;
+    /* damn hard coding :( */
+    left: 6px;
+    padding-top: 3px;
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+}
