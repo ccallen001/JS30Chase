@@ -9,7 +9,7 @@
 html {}
 
 body {
-    background: url("https://s-media-cache-ak0.pinimg.com/originals/e5/3b/52/e53b52ee0d7ce9b38b97bed49fa6bb1d.jpg") no-repeat top / cover;
+    background: url("bland.jpg") no-repeat top / cover;
 }
 
 
@@ -166,7 +166,7 @@ div.bland {
 .bland-icon {
     display: inline-block;
     margin: -29px auto -33px;
-    background: url("https://image.flaticon.com/sprites/new_packs/187515-hipster.png") no-repeat top;
+    background: url("hipster.png") no-repeat top;
     width: 130px;
     height: 130px;
     border: none !important;
