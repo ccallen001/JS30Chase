@@ -1,0 +1,227 @@
+:root {
+    --dark: #1f1f1f;
+    --light: snow;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-smooth: always;
+    font-weight: bold;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, orange, cornflowerblue);
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+/* CUSTOM-INPUT MODAL */
+
+#custom-input {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 1;
+    padding: 50px 10px;
+    width: 462px;
+    height: 270px;
+    background-color: var(--dark);
+    color: var(--light);
+    border: 16px solid ghostwhite;
+    border-radius: 16px;
+    box-shadow: 0 0 4px var(--light), 0 0 16px rgba(255, 255, 255, .25) /*, 0 0 100px var(--light), 0 -2px 128px var(--light)*/;
+    opacity: 0;
+    transform: translate(-50%) translateY(-50%);
+    transition: opacity .2s ease-out;
+}
+
+#custom-input * {
+    font-size: 20px;
+}
+
+#custom-input label {
+    margin: 0 16px;
+}
+
+#custom-input input {
+    vertical-align: top;
+    margin-left: 6px;
+    padding: 6px 8px;
+    width: 54px;
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+}
+
+#custom-input button {
+    display: block;
+    margin: 74px auto 0;
+    padding: 8px 24px 7px;
+    background-color: var(--light);
+    color: var(--dark);
+    font-size: 32px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .33s, color .5s, transform .1s;
+}
+
+#custom-input button:hover {
+    background-color: var(--dark);
+    color: var(--light);
+    box-shadow: 0 0 4px var(--light);
+}
+
+#custom-input button:active {
+    transform: scale(.95);
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+#set-break {
+    margin-bottom: 160px;
+    padding: 2px;
+    background-color: var(--dark);
+}
+
+#set-break ul {
+    display: flex;
+}
+
+#set-break ul li {
+    list-style-type: none;
+    flex: 1;
+    padding: 28px 0 26px;
+    color: var(--light);
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color .33s, color .5s, transform .1s;
+}
+
+#set-break ul li:hover {
+    background-color: var(--light);
+    color: var(--dark);
+    border-radius: 2px;
+}
+
+#set-break ul li:active {
+    transform: scale(.95);
+}
+
+#container {
+    text-shadow: 0 1px 2px var(--dark);
+}
+
+.containers {
+    color: var(--light);
+}
+
+.containers span {
+    display: inline-block;
+    width: 1.5em;
+}
+
+h1 {
+    margin-bottom: 16px;
+    color: var(--light);
+}
+
+h1:first-of-type {
+    font-size: 64px;
+}
+
+h1:last-of-type {
+    /*???*/
+    margin-top: 132px;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    margin: 0 auto 128px;
+    font-size: 150px;
+    font-weight: bold;
+}
+
+#countdown span.ap {
+    font-size: 75px;
+}
+
+#time {
+    font-size: 75px;
+}
+
+#time span.ap {
+    font-size: 64px;
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+#back-at {
+    position: absolute;
+    top: 658px;
+    right: 0;
+    padding: 22px 20px 18px;
+    width: 480px;
+    background-color: var(--dark);
+    color: var(--light);
+    font-size: 40px;
+    text-align: left;
+    border-radius: 16px 0 0 16px;
+    /*cursor: pointer;*/
+    transform: translate(300px);
+    transition: transform .33s ease-in;
+}
+
+#back-at:hover {
+    transform: translate(44px);
+}
+
+#back-at span {
+    display: inline-block;
+    padding: 0 2px;
+    font-size: 42px;
+}
+
+/* space between '@' and first span */
+#back-at span:first-of-type {
+    margin-left: 6px;
+}
+
+#back-at span.ap {
+    /*padding-left: 2px;*/
+    font-size: 32px;
+}

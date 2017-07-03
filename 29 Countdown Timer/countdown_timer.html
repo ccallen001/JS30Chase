@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="countdown_timer.css"/>
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+<div id="background"></div>
+
+<div id="custom-input">
+    <label>h: <input type="number" min="0"></label><label>m: <input type="number" min="0" max="59"></label><label>s: <input type="number" min="0" max="59"></label>
+    <button>START</button>
+</div>
+
+<div id="set-break">
+    <ul>
+        <li>10 sec</li>
+        <li>1 min</li>
+        <li>5 min</li>
+        <li>CUSTOM</li>
+    </ul>
+</div>
+
+<div id="container">
+    <h1>Countdown</h1>
+    <div id="countdown" class="containers">
+        <span class="hr">00</span>:<span class="mi">00</span>:<span class="se">00</span>
+    </div>
+    <h1>Current Time</h1>
+    <div id="time" class="containers">
+        <span class="hr"></span>:<span class="mi"></span>:<span class="se"></span><span class="ap"></span>
+    </div>
+</div>
+
+<div id="back-at">back @
+    <span class="hr">00</span>:<span class="mi">00</span>:<span class="se">00</span><span class="ap">xx</span>
+</div>
+
+<audio id="audio">
+    <source src="https://www.myinstants.com/media/sounds/catch-me-outside-how-bout-that.mp3"/>
+</audio>
+
+</body>
+
+<script src="countdown_timer.js"></script>
+
+</html>
