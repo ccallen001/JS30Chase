@@ -1,6 +1,40 @@
 'use strict';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+// SKYGEAR DATBASE CONNECTION AND SETUP
+
+skygear.config({
+    'endPoint': 'https://whackaharold.skygeario.com/', // trailing slash is required
+    'apiKey': '0f8e62bcfa7a440388a105894ac3ac8d',
+}).then(function () {
+    return skygear.signupAnonymously()
+}).then(function () {
+    //
+}).then(function (record) {
+    // 
+}).catch(function (err) {
+    console.error('Error: ' + err.message);
+});
+
+const Note = skygear.Record.extend('note');
+
+let query0 = new skygear.Query(Note);
+query0.equalTo('_id', 'c345efc4-7d48-4da2-a09c-dd2bf2c1e5d7');
+query0.limit = 1;
+
+let sg_high_score;
+
+// read and assign to global variable the current high score
+skygear.publicDB.query(query0).then(records => {
+    if (records && records[0]) sg_high_score = records[0].high_score;
+}, error => {
+    console.error(error);
+});
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 // VARIABLES
 
@@ -27,7 +61,7 @@ const initFreq = 1500,
 
 let frequency = initFreq,
     minFreq = 1,
-    deltaFreq = 33,
+    deltaFreq = 50,
     //
     upTime = initUpTime,
     deltaUp = 20,
@@ -118,6 +152,23 @@ function interval() {
         beeps[beeps.length - 1].play();
 
         console.log(`SCORE: ${score}`);
+
+        // if high score set, update in database
+        if (score > sg_high_score) {
+            let query1 = new skygear.Query(Note);
+            query1.equalTo('_id', 'c345efc4-7d48-4da2-a09c-dd2bf2c1e5d7');
+            query1.limit = 1;
+
+            skygear.publicDB.query(query1)
+                .then((records) => {
+                    records[0]['high_score'] = score;
+                    return skygear.publicDB.save(records[0]);
+                }).then((record) => {
+                    console.log('CONGRATS!!! HIGH SCORE UPDATED!!!');
+                }, (error) => {
+                    console.error(error);
+                });
+        }
 
         [frequency, upTime] = [initFreq, initUpTime];
 
