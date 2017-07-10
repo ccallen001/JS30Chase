@@ -58,7 +58,7 @@ function randomInt(upperBounds) {
 function popUp(char) {
     if (char.style.transform !== `translateX(-50%) translateY(-50%)`) { // <-- prevent from popping up while already up
 
-        char.style.backgroundImage = `url("https://s.tcdn.co/f4e/997/f4e99785-cdf0-34dd-b279-d5313bc7a155/192/1.png")`; // just to make sure
+        char.style.backgroundImage = `url("images/harold.png")`; // just to make sure
         char.style.transform = `translateX(-50%) translateY(${-50}%)`;
 
         setTimeout(() => {
@@ -70,7 +70,7 @@ function popUp(char) {
 function popDown(char) {
     char.style.transform = `translateX(-50%) translateY(${0}%)`;
     setTimeout(() => {
-        char.style.backgroundImage = `url("https://s.tcdn.co/f4e/997/f4e99785-cdf0-34dd-b279-d5313bc7a155/192/1.png")`;
+        char.style.backgroundImage = `url("images/harold.png")`;
     }, transTime);
 }
 
@@ -81,7 +81,7 @@ function popDown(char) {
 // start the game
 function startGame() {
     if (frequency > minFreq) beeps[0].play();
-    rows[0].style.background = `url("http://media3.giphy.com/media/jtavDv8iqstY4/giphy.gif") center -64px`;
+    rows[0].style.background = `url("images/clouds_animated.gif") center -64px`;
     score = 0;
     interval();
 }
@@ -94,7 +94,7 @@ characters.forEach(char => {
     char.addEventListener(`click`, function () {
         // popDown(this); // <-- commented out lets them fall down organically
 
-        this.style.backgroundImage = `url("https://s.tcdn.co/f4e/997/f4e99785-cdf0-34dd-b279-d5313bc7a155/192/10.png")`;
+        this.style.backgroundImage = `url("images/harold_headache.png")`;
         groans[randomInt(groans.length)].play();
 
         score++;
@@ -112,7 +112,7 @@ function interval() {
         characters.forEach(char => popDown(char));
 
         // stop clouds
-        rows[0].style.background = `url("https://im.ezgif.com/tmp/ezgif-1-0899a6aa09-gif-im/frame_0_delay-0.08s.gif") center -64px`;
+        rows[0].style.background = `url("images/clouds_still.gif") center -64px`;
 
         // buzzer
         beeps[beeps.length - 1].play();
@@ -137,7 +137,7 @@ function interval() {
         // beeps[0].play();
 
         let beep = document.createElement(`audio`);
-        beep.src = `http://home.freeuk.net/soundstuff/sounds/wavs1/beep-once-ver1.wav`;
+        beep.src = `sounds/beep.wav`;
         beep.play();
     }
 

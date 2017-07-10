@@ -45,12 +45,12 @@ body *::selection {
 }
 
 .row.top {
-    background: url("https://im.ezgif.com/tmp/ezgif-1-0899a6aa09-gif-im/frame_0_delay-0.08s.gif") center -64px;
-    /* background: url("http://media3.giphy.com/media/jtavDv8iqstY4/giphy.gif") center -64px; */
+    background: url("images/clouds_still.gif") center -64px;
+    /* background: url("images/clouds_animated.gif") center -64px; */
 }
 
 .row.bottom {
-    background: url("http://www.parsimonious.org/wallandfloor3/files/k8-terrain-barn-muckouttime-071612.jpg");
+    background: url("images/dirt.png");
 }
 
 .cell {
@@ -58,7 +58,7 @@ body *::selection {
     width: 50%;
     height: 10%;
     min-height: 100px;
-    background: url("http://www.crt.state.la.us/dataprojects/archaeology/povertypoint/images/grass.png") no-repeat center / cover;
+    background: url("images/ground.png") no-repeat center / cover;
 }
 
 .character {
@@ -66,12 +66,12 @@ body *::selection {
     z-index: -1;
     width: 256px;
     height: 200px;
-    background: url("https://s.tcdn.co/f4e/997/f4e99785-cdf0-34dd-b279-d5313bc7a155/192/1.png") no-repeat center / contain;
+    background: url("images/harold.png") no-repeat center / contain;
     transform: translateX(-50%);
     transition: transform var(--trans-time) cubic-bezier(0.15, 1.04, 0.21, 1.38);
-    cursor: url("http://i.imgur.com/RdAV0iT.png"), pointer;
+    cursor: url("images/hammer_up.png"), pointer;
 }
 
 .character:active {
-    cursor: url("http://i.imgur.com/rCZSFvu.png"), pointer;
+    cursor: url("images/hammer_down.png"), pointer;
 }
