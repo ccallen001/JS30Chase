@@ -1,0 +1,77 @@
+:root {}
+
+html {}
+
+body {
+    --trans-time: .33s;
+    z-index: -3;
+}
+
+body, body * {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    letter-spacing: .5px;
+    text-align: center;
+    /*border: 1px solid;*/
+    outline: none;
+}
+
+body *::selection {
+    background-color: transparent;
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.instructions {
+    position: absolute;
+    padding-top: 32px;
+    width: 100%;
+}
+
+.start {
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+    z-index: -2;
+    height: 50vh;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.row.top {
+    background: url("https://im.ezgif.com/tmp/ezgif-1-0899a6aa09-gif-im/frame_0_delay-0.08s.gif") center -64px;
+    /* background: url("http://media3.giphy.com/media/jtavDv8iqstY4/giphy.gif") center -64px; */
+}
+
+.row.bottom {
+    background: url("http://www.parsimonious.org/wallandfloor3/files/k8-terrain-barn-muckouttime-071612.jpg");
+}
+
+.cell {
+    margin-top: auto;
+    width: 50%;
+    height: 10%;
+    min-height: 100px;
+    background: url("http://www.crt.state.la.us/dataprojects/archaeology/povertypoint/images/grass.png") no-repeat center / cover;
+}
+
+.character {
+    left: 50%;
+    z-index: -1;
+    width: 256px;
+    height: 200px;
+    background: url("https://s.tcdn.co/f4e/997/f4e99785-cdf0-34dd-b279-d5313bc7a155/192/1.png") no-repeat center / contain;
+    transform: translateX(-50%);
+    transition: transform var(--trans-time) cubic-bezier(0.15, 1.04, 0.21, 1.38);
+    cursor: url("http://i.imgur.com/RdAV0iT.png"), pointer;
+}
+
+.character:active {
+    cursor: url("http://i.imgur.com/rCZSFvu.png"), pointer;
+}

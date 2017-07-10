@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Whack-A-Harold</title>
+    <link rel="icon" href="https://yt3.ggpht.com/-rTYiimoancM/AAAAAAAAAAI/AAAAAAAAAAA/n9Gy1tJRccI/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+    />
+    <link rel="stylesheet" href="game.css" />
+    <!--include babel-->
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>-->
+</head>
+
+<body>
+
+    <div class="instructions">
+        <h1>Whack-A-Harold</h1>
+        <p>Press the START button to begin.</p>
+        <p>Whack Harold by clicking on him.</p>
+        <p>Try to beat the high score!</p>
+        <button class="start">START</button>
+    </div>
+
+    <div class="row top">
+        <div class="cell">
+            <div class="character"></div>
+        </div>
+        <div class="cell">
+            <div class="character"></div>
+        </div>
+        <div class="cell">
+            <div class="character"></div>
+        </div>
+    </div>
+    <div class="row bottom">
+        <div class="cell">
+            <div class="character"></div>
+        </div>
+        <div class="cell">
+            <div class="character"></div>
+        </div>
+        <div class="cell">
+            <div class="character"></div>
+        </div>
+    </div>
+
+    <div class="soundblock">
+
+        <!-- beeps -->
+        <audio class="beep">
+            <!-- ding -->
+            <source src="http://www.sounds.beachware.com/2illionzayp3may/ilssz/ECHOBEL3.mp3" />
+        </audio>
+        <audio class="beep">
+            <source src="http://home.freeuk.net/soundstuff/sounds/wavs1/beep-once-ver1.wav" />
+        </audio>
+        <audio class="beep">
+            <!-- buzzer -->
+            <source src="http://hgm.nubati.net/xboard/sounds/penalty.wav" />
+        </audio>
+
+        <!-- groans -->
+        <audio class="groan">
+            <source src="http://driber.net/homepage/tr/sounds/s54.wav" />
+        </audio>
+        <audio class="groan">
+            <source src="http://www.bndclan.com/Bend3r/hl-content/cstrike/sound/radio/bot/cooked/pain2.wav" />
+        </audio>
+        <audio class="groan">
+            <source src="http://www.bndclan.com/Bend3r/hl-content/cstrike/sound/radio/bot/cooked/pain3.wav" />
+        </audio>
+        <!-- <audio class="groan">
+            <source src="http://sep800.mine.nu/files/sounds/groan2.wav" />
+        </audio> -->
+        <!-- <audio class="groan">
+            <sourc src="http://www.4uall.net/free-sound-effects/People-free-sound-effects/FRUSTRT2.WAV" />
+        </audio> -->
+
+    </div>
+
+</body>
+
+<script src="game.js"></script>
+
+</html>
