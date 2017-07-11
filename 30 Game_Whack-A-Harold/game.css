@@ -45,6 +45,7 @@ body *::selection {
 }
 
 .row.top {
+    min-height: 400px;
     background: url("images/clouds_still.gif") center -64px;
     /* background: url("images/clouds_animated.gif") center -64px; */
 }

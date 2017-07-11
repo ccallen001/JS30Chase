@@ -3,35 +3,32 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-// SKYGEAR DATBASE CONNECTION AND SETUP
+// AIRTABLE DATBASE CONNECTION AND SETUP
 
-skygear.config({
-    'endPoint': 'https://whackaharold.skygeario.com/', // trailing slash is required
-    'apiKey': '0f8e62bcfa7a440388a105894ac3ac8d',
-}).then(function () {
-    return skygear.signupAnonymously()
-}).then(function () {
-    //
-}).then(function (record) {
-    // 
-}).catch(function (err) {
-    console.error('Error: ' + err.message);
-});
-
-const Note = skygear.Record.extend('note');
-
-let query0 = new skygear.Query(Note);
-query0.equalTo('_id', 'c345efc4-7d48-4da2-a09c-dd2bf2c1e5d7');
-query0.limit = 1;
-
-let sg_high_score;
-
-// read and assign to global variable the current high score
-skygear.publicDB.query(query0).then(records => {
-    if (records && records[0]) sg_high_score = records[0].high_score;
-}, error => {
-    console.error(error);
-});
+// read and assign current high score
+let name,
+    highScore;
+function getSetHighScore() {
+    console.log(`Getting high score from Airtable...`)
+    fetch(`https://api.airtable.com/v0/app1f28asn5qYyBt9/Table%201?api_key=key2907TRncvdS3pJ`, { method: `GET` })
+        .then(response => response.json())
+            .then(jso => {
+                // console.log(jso);
+                let o = (jso.records && jso.records.filter && jso.records.filter(rec => rec.id === `recGgzk8TFA7K6N0P`)) || null;
+                // console.log(o[0] && o[0].fields && o[0].fields[`High Score`]);
+                name = (o[0] && o[0].fields && o[0].fields[`Name`]) || `ERROR getting name... "default": "Harold"`;
+                highScore = (o[0] && o[0].fields && o[0].fields[`High Score`]) || null;
+                
+                if (!highScore) {
+                    console.error(`fetch failed to get high score from Airtable`);
+                } else {
+                    console.log(`Current high score: ${highScore} by ${name}`);
+                }
+            })
+            .catch(err => console.error(err))
+        .catch(err => console.error(err));
+}
+// getSetHighScore(); // <-- gets called when interval starts
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -72,7 +69,7 @@ let score = 0;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-// HELPERS
+// HELPER(S)
 
 // just a helper for generating random integers
 function randomInt(upperBounds) {
@@ -117,7 +114,8 @@ function startGame() {
     if (frequency > minFreq) beeps[0].play();
     rows[0].style.background = `url("images/clouds_animated.gif") center -64px`;
     score = 0;
-    interval();
+    getSetHighScore();
+    interval(); // <-- start the popping
 }
 
 // add listner/handler to start button
@@ -126,7 +124,7 @@ start.addEventListener(`click`, startGame, { once: true }); // <-- one time, one
 // when the characters get whacked
 characters.forEach(char => {
     char.addEventListener(`click`, function () {
-        // popDown(this); // <-- commented out lets them fall down organically
+        // popDown(this); // <-- commented out lets them fall down organically in time
 
         this.style.backgroundImage = `url("images/harold_headache.png")`;
         groans[randomInt(groans.length)].play();
@@ -151,23 +149,21 @@ function interval() {
         // buzzer
         beeps[beeps.length - 1].play();
 
-        console.log(`SCORE: ${score}`);
+        console.log(`Your score this round: ${score}`);
 
-        // if high score set, update in database
-        if (score > sg_high_score) {
-            let query1 = new skygear.Query(Note);
-            query1.equalTo('_id', 'c345efc4-7d48-4da2-a09c-dd2bf2c1e5d7');
-            query1.limit = 1;
+        // if high score beat, update in Airtable database
+        if (highScore && (score > highScore)) {
+            console.log(`!!!CONGRATS!!! You set a new high score of ${score}!`);
 
-            skygear.publicDB.query(query1)
-                .then((records) => {
-                    records[0]['high_score'] = score;
-                    return skygear.publicDB.save(records[0]);
-                }).then((record) => {
-                    console.log('CONGRATS!!! HIGH SCORE UPDATED!!!');
-                }, (error) => {
-                    console.error(error);
-                });
+            // figure out how to do a fetch PATCH, lol!
+            let xhr = new XMLHttpRequest();
+            xhr.open(`PATCH`, `https://api.airtable.com/v0/app1f28asn5qYyBt9/Table%201/recGgzk8TFA7K6N0P`);
+            xhr.setRequestHeader(`Authorization`, `Bearer key2907TRncvdS3pJ`);
+            xhr.setRequestHeader(`Content-type`, `application/json`);
+            // TODO: will need to collect player's name in order to update
+            xhr.send(`{"fields": {"Name": "Harold1", "High Score": ${score}}}`);
+        } else {
+            console.log(`Sorry, your score of ${score} did not beat ${name}'s high score of ${highScore}.`)
         }
 
         [frequency, upTime] = [initFreq, initUpTime];
