@@ -1,5 +1,13 @@
 'use strict';
 
+// INITIALIZED GLOBALS
+
+// scoreboard dom
+let score_name,
+    score_high,
+    score_your,
+    score_message;
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -12,23 +20,29 @@ function getSetHighScore() {
     console.log(`Getting high score from Airtable...`)
     fetch(`https://api.airtable.com/v0/app1f28asn5qYyBt9/Table%201?api_key=key2907TRncvdS3pJ`, { method: `GET` })
         .then(response => response.json())
-            .then(jso => {
-                // console.log(jso);
-                let o = (jso.records && jso.records.filter && jso.records.filter(rec => rec.id === `recGgzk8TFA7K6N0P`)) || null;
-                // console.log(o[0] && o[0].fields && o[0].fields[`High Score`]);
-                name = (o[0] && o[0].fields && o[0].fields[`Name`]) || `ERROR getting name... "default": "Harold"`;
-                highScore = (o[0] && o[0].fields && o[0].fields[`High Score`]) || null;
-                
-                if (!highScore) {
-                    console.error(`fetch failed to get high score from Airtable`);
-                } else {
-                    console.log(`Current high score: ${highScore} by ${name}`);
+        .then(jso => {
+            // console.log(jso);
+            let o = (jso.records && jso.records.filter && jso.records.filter(rec => rec.id === `recGgzk8TFA7K6N0P`)) || null;
+            // console.log(o[0] && o[0].fields && o[0].fields[`High Score`]);
+            name = (o[0] && o[0].fields && o[0].fields[`Name`]) || `default Harold`;
+            highScore = (o[0] && o[0].fields && o[0].fields[`High Score`]) || null;
+
+            if (!highScore) {
+                console.error(`fetch failed to get high score from Airtable :(`);
+            } else {
+                // debugger;
+                if (score_name && score_high) {
+                    score_name.textContent = name;
+                    score_high.textContent = highScore;
                 }
-            })
-            .catch(err => console.error(err))
+
+                console.log(`Current high score: ${highScore} by ${name}`);
+            }
+        })
+        .catch(err => console.error(err))
         .catch(err => console.error(err));
 }
-// getSetHighScore(); // <-- gets called when interval starts
+getSetHighScore(); // <-- also gets called when start is clicked/interval starts
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -37,12 +51,18 @@ function getSetHighScore() {
 
 // dom
 
-const rows = document.querySelectorAll(`.row`),
-    start = document.querySelector(`.start`),
+const start = document.querySelector(`.start`),
+    rows = document.querySelectorAll(`.row`),
+
     characters = document.querySelectorAll(`.character`),
 
     groans = document.querySelectorAll(`.groan`),
     beeps = document.querySelectorAll(`.beep`);
+
+score_name = document.getElementsByClassName(`name`)[0];
+score_high = document.getElementsByClassName(`high`)[0];
+score_your = document.getElementsByClassName(`your`)[0];
+score_message = document.getElementsByClassName(`message`)[0];
 
 /*----------------------------------------------------------------------------*/
 
@@ -84,7 +104,7 @@ function randomInt(upperBounds) {
 
 // GAME MECHANICS
 
-// characters up and down
+// characters popping up and down
 
 function popUp(char) {
     if (char.style.transform !== `translateX(-50%) translateY(-50%)`) { // <-- prevent from popping up while already up
@@ -114,6 +134,8 @@ function startGame() {
     if (frequency > minFreq) beeps[0].play();
     rows[0].style.background = `url("images/clouds_animated.gif") center -64px`;
     score = 0;
+    score_your.textContent = score;
+    score_message.textContent = `Harold loves you! <3`;
     getSetHighScore();
     interval(); // <-- start the popping
 }
@@ -130,6 +152,8 @@ characters.forEach(char => {
         groans[randomInt(groans.length)].play();
 
         score++;
+
+        score_your.textContent = score;
     });
 });
 
@@ -153,6 +177,8 @@ function interval() {
 
         // if high score beat, update in Airtable database
         if (highScore && (score > highScore)) {
+            score_message.textContent = `New high score of ${score}!`;
+
             console.log(`!!!CONGRATS!!! You set a new high score of ${score}!`);
 
             // figure out how to do a fetch PATCH, lol!
@@ -163,7 +189,9 @@ function interval() {
             // TODO: will need to collect player's name in order to update
             xhr.send(`{"fields": {"Name": "Harold1", "High Score": ${score}}}`);
         } else {
-            console.log(`Sorry, your score of ${score} did not beat ${name}'s high score of ${highScore}.`)
+            score_message.textContent = `Didn't beat ${name}'s score of ${highScore}.`;
+
+            console.log(`Sorry, your score of ${score} did not beat ${name}'s high score of ${highScore}.`);
         }
 
         [frequency, upTime] = [initFreq, initUpTime];

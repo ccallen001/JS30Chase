@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Exo|VT323');
+
+/*----------------------------------------------------------------------------*/
+
 :root {}
 
 html {}
@@ -12,7 +16,7 @@ body, body * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: exo, sans-serif;
     letter-spacing: .5px;
     text-align: center;
     /*border: 1px solid;*/
@@ -28,13 +32,29 @@ body *::selection {
 
 .instructions {
     position: absolute;
-    padding-top: 32px;
+    padding-top: 28px;
     width: 100%;
 }
 
+.instructions h1 {
+    /*margin-bottom: 2px;*/
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.instructions p {
+    font-weight: bold;
+}
+
 .start {
+    margin-top: 12px;
+    padding: 4px 16px 3px;
+    box-shadow: 0 1px 2px #ccc;
     cursor: pointer;
 }
+
+
+/*----------------------------------------------------------------------------*/
 
 .row {
     display: flex;
@@ -61,6 +81,64 @@ body *::selection {
     min-height: 100px;
     background: url("images/ground.png") no-repeat center / cover;
 }
+
+
+/*----------------------------------------------------------------------------*/
+
+.scoreboard {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    padding: 16px 20px;
+    width: 512px;
+    height: 156px;
+    background-color: rgba(255, 255, 255, .65);
+    /*color: #333;*/
+    font-size: 24px;
+    font-weight: bold;
+    border: 8px solid rgba(255, 255, 255, .75);
+    border-radius: 16px;
+    transform: translate(-50%);
+}
+
+.scoreboard * {
+    vertical-align: bottom;
+}
+
+.scoreboard div {
+    padding-left: 8px;
+    border: 1px solid;
+}
+
+.scoreboard span {}
+
+.scoreboard span:first-child {
+    float: left;
+    width: 200px;
+}
+
+.name {}
+
+.high, .your {
+    font-family: vt323, monospace;
+    font-size: 32px;
+}
+
+.message {
+    padding: 4px;
+    height: 41px;
+    background-color: #333;
+    color: limegreen;
+    font-family: vt323, monospace;
+    font-size: 26px;
+    line-height: 32px;
+    border-top: none !important;
+    border-bottom-color: black !important;
+    transform: scaleX(1.01);
+}
+
+
+/*----------------------------------------------------------------------------*/
 
 .character {
     left: 50%;
