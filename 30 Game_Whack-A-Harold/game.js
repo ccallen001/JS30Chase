@@ -25,8 +25,9 @@ function getSetHighScore() {
             let o = (jso.records && jso.records.filter && jso.records.filter(rec => rec.id === `recGgzk8TFA7K6N0P`)) || null;
             // console.log(o[0] && o[0].fields && o[0].fields[`High Score`]);
             name = (o[0] && o[0].fields && o[0].fields[`Name`]) || `default Harold`;
-            highScore = (o[0] && o[0].fields && o[0].fields[`High Score`]) || null;
+            if (name === `default Harold`) console.error(`error getting name from Airtable :( ...defaulting to 'Harold'`);
 
+            highScore = (o[0] && o[0].fields && o[0].fields[`High Score`]) || null;
             if (!highScore) {
                 console.error(`fetch failed to get high score from Airtable :(`);
             } else {
@@ -36,7 +37,7 @@ function getSetHighScore() {
                     score_high.textContent = highScore;
                 }
 
-                console.log(`Current high score: ${highScore} by ${name}`);
+                console.log(`Current high score: ${highScore}. Set by '${name}'!`);
             }
         })
         .catch(err => console.error(err))
@@ -51,13 +52,21 @@ getSetHighScore(); // <-- also gets called when start is clicked/interval starts
 
 // dom
 
-const start = document.querySelector(`.start`),
-    rows = document.querySelectorAll(`.row`),
+const fireworks = document.querySelector(`.fireworks`),
 
+    name_inpCont = document.querySelector(`.name_input_container`),
+    name_inp = document.querySelector(`.name_input`),
+    name_inpInp = name_inp.querySelector(`input`),
+    name_inpBtn = name_inp.querySelector(`button`),
+
+    start = document.querySelector(`.start`),
+
+    rows = document.querySelectorAll(`.row`),
     characters = document.querySelectorAll(`.character`),
 
     groans = document.querySelectorAll(`.groan`),
-    beeps = document.querySelectorAll(`.beep`);
+    beeps = document.querySelectorAll(`.beep`),
+    applause = document.querySelector(`.applause`);
 
 score_name = document.getElementsByClassName(`name`)[0];
 score_high = document.getElementsByClassName(`high`)[0];
@@ -177,21 +186,52 @@ function interval() {
 
         // if high score beat, update in Airtable database
         if (highScore && (score > highScore)) {
-            score_message.textContent = `New high score of ${score}!`;
+            fireworks.style.display = `block`;
+            applause.play();
+            applause.onended = () => fireworks.style.display = `none`;
 
-            console.log(`!!!CONGRATS!!! You set a new high score of ${score}!`);
+            name_inpCont.style.top = `64px`;
+            name_inpCont.style.zIndex = 1000;
+            name_inp.style.transform = `rotate(1440deg) scale(1)`;
+            setTimeout(() => {
+                name_inpInp.focus();
+                name_inpBtn.onclick = () => {
+                    // debugger;
+                    if (name_inpInp.value) {
+                        // update the database
+                        // figure out how to do a fetch PATCH, lol!
+                        try {
+                            let xhr = new XMLHttpRequest();
+                            xhr.open(`PATCH`, `https://api.airtable.com/v0/app1f28asn5qYyBt9/Table%201/recGgzk8TFA7K6N0P`);
+                            xhr.setRequestHeader(`Authorization`, `Bearer key2907TRncvdS3pJ`);
+                            xhr.setRequestHeader(`Content-type`, `application/json`);
+                            try { xhr.send(`{"fields": {"Name": "${name_inpInp.value}", "High Score": ${score}}}`); }
+                            catch (err) { console.error(`Error sending name and/or score to Airtable :(`); }
+                        } catch (err) {
+                            console.error(`Error updating Airtable database: ${err}`);
+                        }
 
-            // figure out how to do a fetch PATCH, lol!
-            let xhr = new XMLHttpRequest();
-            xhr.open(`PATCH`, `https://api.airtable.com/v0/app1f28asn5qYyBt9/Table%201/recGgzk8TFA7K6N0P`);
-            xhr.setRequestHeader(`Authorization`, `Bearer key2907TRncvdS3pJ`);
-            xhr.setRequestHeader(`Content-type`, `application/json`);
-            // TODO: will need to collect player's name in order to update
-            xhr.send(`{"fields": {"Name": "Harold1", "High Score": ${score}}}`);
+                        name_inpCont.style.top = 0;
+                        name_inpCont.style.zIndex = 0;
+                        name_inp.style.transform = `rotate(0) scale(0)`;
+
+                        // update the scoreboard
+                        score_name.textContent = name_inpInp.value;
+                        score_high.textContent = score;
+                    } else {
+                        score_message.textContent = `Input your name, silly!`;
+                        name_inp.focus();
+                    }
+                }
+            }, transTime);
+
+            score_message.textContent = `!!!CONGRATS!!! New high score: ${score}!`;
+
+            console.log(`:) !!!CONGRATS!!! You set a new high score of ${score}! :)`);
         } else {
             score_message.textContent = `Didn't beat ${name}'s score of ${highScore}.`;
 
-            console.log(`Sorry, your score of ${score} did not beat ${name}'s high score of ${highScore}.`);
+            console.log(`:( Sorry, your score of ${score} did not beat ${name}'s high score of ${highScore}. :(`);
         }
 
         [frequency, upTime] = [initFreq, initUpTime];

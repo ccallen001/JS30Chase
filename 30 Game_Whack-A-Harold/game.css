@@ -30,6 +30,69 @@ body *::selection {
 
 /*----------------------------------------------------------------------------*/
 
+.fireworks {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45vh;
+    background: url("images/fireworks.gif") center;
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.name_input_container {
+    z-index: -1;
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.name_input {
+    padding: 32px;
+    width: 448px;
+    height: 210px;
+    background-color: #333;
+    color: whitesmoke;
+    border: 12px solid;
+    border-radius: 16px;
+    transform: rotate(0) scale(0);
+    transition: transform calc(var(--trans-time) * 2);
+}
+
+.name_input h1 {
+    margin-bottom: 4px;
+}
+
+.name_input h3 {
+    margin-bottom: 16px;
+}
+
+.name_input input {
+    display: inline-block;
+    margin-right: 8px;
+    width: 75%;
+}
+
+.name_input button {
+    padding: 4px 8px 3px;
+    background-color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.name_input button:active {
+    transform: scale(.95);
+}
+
+
+/*----------------------------------------------------------------------------*/
+
 .instructions {
     position: absolute;
     padding-top: 28px;
@@ -87,7 +150,7 @@ body *::selection {
 
 .scoreboard {
     position: absolute;
-    top: 8px;
+    top: 16px;
     left: 50%;
     padding: 16px 20px;
     width: 512px;
@@ -110,14 +173,10 @@ body *::selection {
     border: 1px solid;
 }
 
-.scoreboard span {}
-
 .scoreboard span:first-child {
     float: left;
     width: 200px;
 }
-
-.name {}
 
 .high, .your {
     font-family: vt323, monospace;
