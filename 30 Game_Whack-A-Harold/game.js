@@ -118,7 +118,7 @@ function randomInt(upperBounds) {
 function popUp(char) {
     if (char.style.transform !== `translateX(-50%) translateY(-50%)`) { // <-- prevent from popping up while already up
 
-        char.style.backgroundImage = `url("images/harold.png")`; // just to make sure
+        char.style.backgroundImage = `url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/harold.png")`; // just to make sure
         char.style.transform = `translateX(-50%) translateY(${-50}%)`;
 
         setTimeout(() => {
@@ -130,7 +130,7 @@ function popUp(char) {
 function popDown(char) {
     char.style.transform = `translateX(-50%) translateY(${0}%)`;
     setTimeout(() => {
-        char.style.backgroundImage = `url("images/harold.png")`;
+        char.style.backgroundImage = `url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/harold.png")`;
     }, transTime);
 }
 
@@ -141,7 +141,7 @@ function popDown(char) {
 // start the game
 function startGame() {
     if (frequency > minFreq) beeps[0].play();
-    rows[0].style.background = `url("images/clouds_animated.gif") center -64px`;
+    rows[0].style.background = `url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/clouds_animated.gif") center -64px`;
     score = 0;
     score_your.textContent = score;
     score_message.textContent = `Harold loves you! <3`;
@@ -157,7 +157,7 @@ characters.forEach(char => {
     char.addEventListener(`click`, function () {
         // popDown(this); // <-- commented out lets them fall down organically in time
 
-        this.style.backgroundImage = `url("images/harold_headache.png")`;
+        this.style.backgroundImage = `url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/harold_headache.png")`;
         groans[randomInt(groans.length)].play();
 
         score++;
@@ -177,7 +177,7 @@ function interval() {
         characters.forEach(char => popDown(char));
 
         // stop clouds
-        rows[0].style.background = `url("images/clouds_still.gif") center -64px`;
+        rows[0].style.background = `url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/clouds_still.gif") center -64px`;
 
         // buzzer
         beeps[beeps.length - 1].play();
@@ -252,7 +252,7 @@ function interval() {
         // beeps[0].play();
 
         let beep = document.createElement(`audio`);
-        beep.src = `sounds/beep.wav`;
+        beep.src = `https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/sounds/beep.wav`;
         beep.play();
     }
 

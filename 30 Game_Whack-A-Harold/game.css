@@ -2,6 +2,10 @@
 
 /*----------------------------------------------------------------------------*/
 
+@media screen and (max-width: )
+
+/*----------------------------------------------------------------------------*/
+
 :root {}
 
 html {}
@@ -37,7 +41,7 @@ body *::selection {
     left: 0;
     width: 100%;
     height: 45vh;
-    background: url("images/fireworks.gif") center;
+    background: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/fireworks.gif") center;
 }
 
 
@@ -123,18 +127,17 @@ body *::selection {
     display: flex;
     z-index: -2;
     height: 50vh;
-    min-height: 200px;
+    min-height: 400px;
     overflow: hidden;
 }
 
 .row.top {
-    min-height: 400px;
-    background: url("images/clouds_still.gif") center -64px;
+    background: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/clouds_still.gif") center -64px;
     /* background: url("images/clouds_animated.gif") center -64px; */
 }
 
 .row.bottom {
-    background: url("images/dirt.png");
+    background: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/dirt.png");
 }
 
 .cell {
@@ -142,7 +145,7 @@ body *::selection {
     width: 50%;
     height: 10%;
     min-height: 100px;
-    background: url("images/ground.png") no-repeat center / cover;
+    background: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/ground.png") no-repeat center / cover;
 }
 
 
@@ -204,12 +207,12 @@ body *::selection {
     z-index: -1;
     width: 256px;
     height: 200px;
-    background: url("images/harold.png") no-repeat center / contain;
+    background: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/harold.png") no-repeat center / contain;
     transform: translateX(-50%);
     transition: transform var(--trans-time) cubic-bezier(0.15, 1.04, 0.21, 1.38);
-    cursor: url("images/hammer_up.png"), pointer;
+    cursor: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/hammer_up.png"), pointer;
 }
 
 .character:active {
-    cursor: url("images/hammer_down.png"), pointer;
+    cursor: url("https://raw.githubusercontent.com/ccallen001/JS30Chase/master/30%20Game_Whack-A-Harold/images/hammer_down.png"), pointer;
 }
